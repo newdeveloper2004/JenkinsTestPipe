@@ -31,13 +31,15 @@ public class LoginTest {
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-            // safer selectors (less brittle than name=email)
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[name='email'], input[type='email']")));
+            // Wait for the email field by ID
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.id("email")));
 
-            driver.findElement(By.cssSelector("input[name='email'], input[type='email']"))
+            // Enter email using ID
+            driver.findElement(By.id("email"))
                     .sendKeys("qasim@malik.com");
 
-            driver.findElement(By.name("password"))
+            // Enter password using ID
+            driver.findElement(By.id("password"))
                     .sendKeys("abcdefg");
 
             driver.findElement(By.id("m_login_signin_submit"))
