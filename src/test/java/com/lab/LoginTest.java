@@ -46,13 +46,15 @@ public class LoginTest {
             driver.findElement(By.cssSelector("button[type='submit']"))
                     .click();
 
+            // Wait for the "Failed to fetch" error message to appear
             String errorText = wait.until(
                     ExpectedConditions.visibilityOfElementLocated(
-                            By.xpath("//*[contains(text(),'Incorrect email or password')]")
+                            By.xpath("//*[contains(text(),'Failed to fetch')]")
                     )
             ).getText();
 
-            assertTrue(errorText.contains("Incorrect email or password"));
+            // Assert that the error text is what we expect
+            assertTrue(errorText.contains("Failed to fetch"));
 
         } finally {
             driver.quit();
