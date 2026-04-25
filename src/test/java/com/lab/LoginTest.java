@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertTrue;
 
-public class AppTest {
+public class LoginTest {
 
     @Test
     public void test_login_with_incorrect_credentials() {
