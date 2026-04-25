@@ -34,15 +34,16 @@ public class LoginTest {
             // Wait for the email field by ID
             wait.until(ExpectedConditions.presenceOfElementLocated(By.id("email")));
 
-            // Enter email using ID
+            // Enter email
             driver.findElement(By.id("email"))
                     .sendKeys("qasim@malik.com");
 
-            // Enter password using ID
+            // Enter password
             driver.findElement(By.id("password"))
                     .sendKeys("abcdefg");
 
-            driver.findElement(By.id("m_login_signin_submit"))
+            // Click the submit button using CSS Selector
+            driver.findElement(By.cssSelector("button[type='submit']"))
                     .click();
 
             String errorText = wait.until(
